@@ -1,47 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Coracle Bank</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .email-button {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .email-button:hover {
-            background-color: #45a049;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miri Devices & Live Clock</title>
+  <style>
+    :root {
+      --bg-color: #fdfbf7;
+      --card-bg: #ffcdd2;
+      --card-border: #ef9a9a;
+      --text-main: #2c3e50;
+      --line-color: #d32f2f;
+      --accent: #b71c1c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    /* Live Clock Styling */
+    .clock-container {
+      background: #ffffff;
+      border: 2px solid var(--card-border);
+      border-radius: 20px;
+      padding: 1.25rem 2.5rem;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      margin-bottom: 3rem;
+    }
+
+    .clock-time {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 2px;
+      direction: ltr;
+    }
+
+    .clock-date {
+      font-size: 1.1rem;
+      color: #666;
+      margin-top: 0.25rem;
+    }
+
+    /* Mind Map Layout */
+    .mindmap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    /* Central Node */
+    .central-node {
+      background-color: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 30px;
+      padding: 2rem 2.5rem;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(211, 47, 47, 0.15);
+      position: relative;
+    }
+
+    .central-node h1 {
+      font-size: 1.8rem;
+      color: #000;
+      margin-bottom: 0.2rem;
+    }
+
+    .central-node h2 {
+      font-size: 1.5rem;
+      color: #000;
+      font-weight: 600;
+    }
+
+    /* Branches List */
+    .branches {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      list-style: none;
+      position: relative;
+    }
+
+    .branch-item {
+      background-color: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      border-radius: 20px;
+      padding: 0.9rem 1.8rem;
+      min-width: 260px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+      position: relative;
+      direction: ltr;
+      text-align: center;
+    }
+
+    .branch-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #111;
+    }
+
+    .branch-details {
+      font-size: 0.95rem;
+      color: #333;
+      margin-top: 0.2rem;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 768px) {
+      .mindmap {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .branch-item {
+        min-width: 220px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Contact Coracle Bank</h1>
-    <a href="mailto:info@coraclebank.com" class="email-button">General Inquiries</a>
-    <a href="mailto:support@coraclebank.com" class="email-button">Customer Support</a>
-    <a href="mailto:loans@coraclebank.com" class="email-button">Loan Services</a>
-    <a href="mailto:creditcards@coraclebank.com" class="email-button">Credit Card Services</a>
-    <a href="mailto:investments@coraclebank.com" class="email-button">Investment Services</a>
-    <a href="mailto:business@coraclebank.com" class="email-button">Business Banking</a>
-    <a href="mailto:complaints@coraclebank.com" class="email-button">Complaints</a>
+
+  <!-- Real-Time Clock & Date -->
+  <div class="clock-container">
+    <div class="clock-time" id="time">00:00:00</div>
+    <div class="clock-date" id="date">--</div>
+  </div>
+
+  <!-- Mind Map Structure -->
+  <div class="mindmap">
+    
+    <!-- Main Center Node -->
+    <div class="central-node">
+      <h1>اجهزي</h1>
+      <h2>Miri</h2>
+    </div>
+
+    <!-- Device List Branches -->
+    <ul class="branches">
+      <li class="branch-item">
+        <div class="branch-title">Macbook Air M1 2020</div>
+        <div class="branch-details">Chip M1</div>
+        <div class="branch-details">Memory 8 GB</div>
+      </li>
+      <li class="branch-item">
+        <div class="branch-title">I phone 13</div>
+      </li>
+      <li class="branch-item">
+        <div class="branch-title">Redmi 12</div>
+      </li>
+      <li class="branch-item">
+        <div class="branch-title">I pad 10th generation</div>
+      </li>
+      <li class="branch-item">
+        <div class="branch-title">I phone 8</div>
+      </li>
+      <li class="branch-item">
+        <div class="branch-title">I phone x</div>
+      </li>
+    </ul>
+
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      
+      // Formatting Time (24-hour)
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
+
+      // Formatting Date
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('date').textContent = now.toLocaleDateString('ar-EG', options);
+    }
+
+    // Run clock on load and update every second
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
 </body>
 </html>
